@@ -1,10 +1,648 @@
-<!-- Upload the full fixed HTML and images to root. See conversation for files. -->
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Ziverse Constructions - Style 2</title></head>
-<body style="background:#0A0F1C;color:#F7F5F2;font-family:sans-serif;text-align:center;padding:80px 20px;">
-<h1>Ziverse Constructions</h1>
-<p>tradie_style2 repository ready.</p>
-<p>Please upload the fixed index.html and image files to complete.</p>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ziverse Constructions – Licensed residential builder in Sydney & the Blue Mountains. Custom homes, renovations, decks & kitchens. Fixed-price quotes.">
+<title>Ziverse Constructions | Licensed Builder Sydney</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8FAFC;
+  --bg-soft: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
+  --accent-light: #CCFBF1;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --border: #E2E8F0;
+  --radius: 16px;
+  --shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
+a:hover { color: var(--accent-hover); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+header {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.header-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 72px;
+}
+.logo {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+  color: var(--text);
+}
+.logo span { color: var(--accent); }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+nav a:hover { color: var(--text); }
+.lang-btn {
+  background: transparent; border: 1.5px solid var(--accent); color: var(--accent);
+  padding: 7px 16px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 0.88rem;
+}
+.lang-btn:hover { background: var(--accent); color: white; }
+.btn-header, .btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 26px; border-radius: 40px; font-weight: 600; font-size: 0.95rem;
+  transition: all 0.2s ease; cursor: pointer;
+}
+.btn-header, .btn-primary { background: var(--accent); color: white; }
+.btn-header:hover, .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-secondary { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.menu-toggle {
+  display: none; background: none; border: none; color: var(--text);
+  font-size: 1.8rem; cursor: pointer; z-index: 1001;
+}
+.mobile-nav {
+  display: none; position: fixed; inset: 0; background: rgba(248,250,252,0.98);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  z-index: 999;
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a { font-size: 1.4rem; color: var(--text); font-weight: 500; }
+
+.hero {
+  min-height: 92vh; display: flex; align-items: center;
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #F0FDFA 0%, #F8FAFC 50%, #F0F9FF 100%);
+  position: relative;
+}
+.hero-content { max-width: 680px; }
+.eyebrow {
+  color: var(--accent); font-weight: 600; letter-spacing: 1.5px; font-size: 0.82rem;
+  text-transform: uppercase; margin-bottom: 16px; display: inline-block;
+}
+.hero h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; font-weight: 800;
+  color: var(--text);
+}
+.hero p { font-size: 1.18rem; color: var(--text-muted); margin-bottom: 36px; max-width: 540px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px; margin-top: 64px;
+}
+.stat strong { display: block; font-size: 1.05rem; margin-bottom: 4px; color: var(--text); }
+.stat { font-size: 0.88rem; color: var(--text-muted); }
+
+section { padding: 100px 0; }
+.section-header { margin-bottom: 48px; }
+.section-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2.1rem, 4vw, 2.8rem); margin-bottom: 12px; font-weight: 700;
+}
+.section-sub { color: var(--text-muted); font-size: 1.08rem; max-width: 640px; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+.service-card {
+  background: var(--bg-card); border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(15,23,42,0.12); }
+.service-card img { height: 190px; width: 100%; object-fit: cover; }
+.service-card .content { padding: 26px; }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item {
+  border-radius: var(--radius); overflow: hidden; position: relative;
+  aspect-ratio: 4/3; cursor: pointer; box-shadow: var(--shadow);
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item .overlay {
+  position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.7), transparent 50%);
+  display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: opacity 0.3s;
+}
+.gallery-item:hover .overlay { opacity: 1; }
+.gallery-item span { font-weight: 600; color: white; }
+
+.process { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+.step {
+  background: var(--bg-card); padding: 32px 26px; border-radius: var(--radius);
+  border: 1px solid var(--border); position: relative; box-shadow: var(--shadow);
+}
+.step-num {
+  font-family: 'Manrope', sans-serif; font-size: 2.8rem; color: var(--accent);
+  opacity: 0.25; position: absolute; top: 16px; right: 20px; line-height: 1; font-weight: 800;
+}
+.step h3 { margin: 28px 0 12px; font-size: 1.25rem; }
+.step p { color: var(--text-muted); font-size: 0.95rem; }
+
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+.about-image { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.about-image img { width: 100%; height: 400px; object-fit: cover; }
+.about-details { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
+.detail-item {
+  background: var(--bg-elevated); padding: 18px 22px; border-radius: 14px;
+  border-left: 4px solid var(--accent);
+}
+.detail-item strong { display: block; color: var(--accent); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+
+.testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+.testimonial {
+  background: var(--bg-card); padding: 32px; border-radius: var(--radius); border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.stars { color: var(--accent); margin-bottom: 14px; letter-spacing: 2px; }
+.testimonial p { margin-bottom: 16px; font-style: italic; color: var(--text); line-height: 1.7; }
+.author { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+
+.faq-item {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+  margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow);
+}
+.faq-item.active { border-color: var(--accent); }
+.faq-question {
+  padding: 20px 24px; cursor: pointer; font-weight: 600; display: flex;
+  justify-content: space-between; align-items: center;
+}
+.faq-question::after { content: '+'; font-size: 1.4rem; color: var(--accent); }
+.faq-item.active .faq-question::after { content: '−'; }
+.faq-answer {
+  padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.35s ease;
+  color: var(--text-muted);
+}
+.faq-item.active .faq-answer { padding: 0 24px 20px; max-height: 400px; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; }
+.contact-methods { margin: 28px 0 36px; }
+.contact-methods a {
+  display: flex; align-items: center; gap: 12px; padding: 14px 0;
+  border-bottom: 1px solid var(--border); color: var(--text); font-size: 1.05rem;
+}
+.areas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.area-tag {
+  background: var(--accent-light); color: var(--accent); padding: 6px 14px; border-radius: 20px;
+  font-size: 0.84rem; font-weight: 500;
+}
+form { display: flex; flex-direction: column; gap: 16px; }
+input, select, textarea {
+  background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text);
+  padding: 15px 18px; border-radius: 12px; font-family: inherit; font-size: 1rem;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+textarea { min-height: 130px; resize: vertical; }
+button[type="submit"] {
+  background: var(--accent); color: white; border: none; padding: 16px;
+  border-radius: 40px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 8px;
+}
+button[type="submit"]:hover { background: var(--accent-hover); }
+
+.sticky-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(248,250,252,0.96); backdrop-filter: blur(12px);
+  padding: 12px 16px; border-top: 1px solid var(--border); z-index: 900; gap: 10px;
+}
+.sticky-cta a { flex: 1; text-align: center; padding: 14px; border-radius: 12px; font-weight: 600; }
+.sticky-cta .call { background: var(--bg-elevated); color: var(--text); }
+.sticky-cta .quote { background: var(--accent); color: white; }
+
+.back-to-top {
+  position: fixed; bottom: 100px; right: 20px; width: 46px; height: 46px;
+  background: var(--accent); color: white; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 1.3rem; opacity: 0;
+  pointer-events: none; transition: 0.3s; z-index: 800; border: none; cursor: pointer;
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; }
+
+footer {
+  border-top: 1px solid var(--border); padding: 48px 0 32px; text-align: center;
+  color: var(--text-muted); font-size: 0.88rem; background: white;
+}
+footer .logo { margin-bottom: 12px; display: inline-block; }
+
+.lang-zh { display: none; }
+body.zh .lang-en { display: none; }
+body.zh .lang-zh { display: block; }
+
+@media (max-width: 1024px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-image img { height: 340px; }
+  section { padding: 80px 0; }
+}
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; }
+  .hero { padding: 100px 0 60px; min-height: auto; }
+  .hero h1 { font-size: 2.3rem; }
+  .stats { grid-template-columns: 1fr 1fr; margin-top: 40px; }
+  .sticky-cta { display: flex; }
+  body { padding-bottom: 84px; }
+  .services-grid, .gallery-grid, .testimonials, .process { grid-template-columns: 1fr; }
+  .back-to-top { bottom: 100px; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-grid, .gallery-grid, .process { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Ziverse <span>Constructions</span></div>
+    <nav>
+      <a href="#services"><span class="lang-en">Services</span><span class="lang-zh">服务</span></a>
+      <a href="#work"><span class="lang-en">Work</span><span class="lang-zh">案例</span></a>
+      <a href="#process"><span class="lang-en">Process</span><span class="lang-zh">流程</span></a>
+      <a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于我们</span></a>
+      <a href="#testimonials"><span class="lang-en">Reviews</span><span class="lang-zh">评价</span></a>
+      <a href="#faq"><span class="lang-en">FAQ</span><span class="lang-zh">常见问题</span></a>
+      <button class="lang-btn" id="langToggle">中文</button>
+      <a href="#contact" class="btn-header"><span class="lang-en">Get Quote</span><span class="lang-zh">免费报价</span></a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMenu()"><span class="lang-en">Services</span><span class="lang-zh">服务</span></a>
+  <a href="#work" onclick="closeMenu()"><span class="lang-en">Work</span><span class="lang-zh">案例</span></a>
+  <a href="#process" onclick="closeMenu()"><span class="lang-en">Process</span><span class="lang-zh">流程</span></a>
+  <a href="#about" onclick="closeMenu()"><span class="lang-en">About</span><span class="lang-zh">关于我们</span></a>
+  <a href="#testimonials" onclick="closeMenu()"><span class="lang-en">Reviews</span><span class="lang-zh">评价</span></a>
+  <a href="#faq" onclick="closeMenu()"><span class="lang-en">FAQ</span><span class="lang-zh">常见问题</span></a>
+  <button class="lang-btn" id="langToggleMobile" style="margin-top:8px;">中文</button>
+  <a href="#contact" onclick="closeMenu()" class="btn-primary" style="margin-top:10px;"><span class="lang-en">Get a Free Quote</span><span class="lang-zh">免费报价</span></a>
+</div>
+
+<section class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow fade-up">
+      <span class="lang-en">Licensed Residential Builder — Sydney & Blue Mountains</span>
+      <span class="lang-zh">持牌住宅建筑商 — 悉尼与蓝山地区</span>
+    </div>
+    <h1 class="fade-up delay-1">
+      <span class="lang-en">Custom builds & renovations, done right the first time.</span>
+      <span class="lang-zh">定制建造与翻新，一次做对。</span>
+    </h1>
+    <p class="fade-up delay-2">
+      <span class="lang-en">From new homes to extensions, decks and renovations — honest quotes, no shortcuts, and the same person from first visit to handover.</span>
+      <span class="lang-zh">从新房到扩建、露台和翻新——诚实报价，不走捷径，从首次现场勘查到交房，始终由同一人负责。</span>
+    </p>
+    <div class="hero-btns fade-up delay-3">
+      <a href="#contact" class="btn-primary"><span class="lang-en">Get a Free Quote</span><span class="lang-zh">获取免费报价</span></a>
+      <a href="#work" class="btn-secondary"><span class="lang-en">View Our Work</span><span class="lang-zh">查看我们的作品</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong><span class="lang-en">Licensed & Fully Insured</span><span class="lang-zh">持牌且全额投保</span></strong><span class="lang-en">NSW Licence 471023C</span><span class="lang-zh">NSW 执照 471023C</span></div>
+      <div class="stat"><strong><span class="lang-en">Building Since 2020</span><span class="lang-zh">自 2020 年起建造</span></strong><span class="lang-en">Owner-operated</span><span class="lang-zh">业主亲自运营</span></div>
+      <div class="stat"><strong><span class="lang-en">Fixed-Price Quotes</span><span class="lang-zh">固定报价</span></strong><span class="lang-en">No surprises later</span><span class="lang-zh">无隐藏费用</span></div>
+      <div class="stat"><strong><span class="lang-en">Greater Sydney</span><span class="lang-zh">大悉尼地区</span></strong><span class="lang-en">& Blue Mountains</span><span class="lang-zh">与蓝山</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="lang-en">What We Do</span><span class="lang-zh">我们的服务</span></h2>
+      <p class="section-sub"><span class="lang-en">Services built around how homeowners actually renovate — managed start to finish by one trusted team.</span><span class="lang-zh">围绕业主实际翻新需求设计的服务——由一个可信团队全程管理，从始至终。</span></p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="AZmgs.jpg" alt="New homes" loading="lazy">
+        <div class="content">
+          <h3><span class="lang-en">New Homes</span><span class="lang-zh">新建住宅</span></h3>
+          <p><span class="lang-en">Knockdown-rebuilds and custom builds from concept to keys, managed start to finish.</span><span class="lang-zh">拆建与定制建造，从概念设计到交钥匙，全程管理。</span></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="9T8uz.jpg" alt="Kitchen" loading="lazy">
+        <div class="content">
+          <h3><span class="lang-en">Bathrooms & Kitchens</span><span class="lang-zh">浴室与厨房</span></h3>
+          <p><span class="lang-en">Full strip-outs and rebuilds, waterproofing and fit-out handled by one trusted crew.</span><span class="lang-zh">全面拆除重建、防水与装修，由一个可信团队完成。</span></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="ex4dX.jpg" alt="Deck" loading="lazy">
+        <div class="content">
+          <h3><span class="lang-en">Decks & Outdoor Living</span><span class="lang-zh">露台与户外生活</span></h3>
+          <p><span class="lang-en">Decks, pergolas and alfresco areas built to handle the Australian outdoors.</span><span class="lang-zh">露台、凉亭和户外休闲区，专为澳大利亚户外环境建造。</span></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="wLi3O.jpg" alt="Bathroom" loading="lazy">
+        <div class="content">
+          <h3><span class="lang-en">Renovations & Extensions</span><span class="lang-zh">翻新与扩建</span></h3>
+          <p><span class="lang-en">Second storeys, extra bedrooms and full home renovations that respect your budget.</span><span class="lang-zh">二层加建、增加卧室和全屋翻新，尊重您的预算。</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="lang-en">Our Work</span><span class="lang-zh">我们的作品</span></h2>
+      <p class="section-sub"><span class="lang-en">The kind of homes and spaces we build. These are examples of the style and quality of work we deliver.</span><span class="lang-zh">我们建造的住宅与空间类型。这些是我们交付作品风格与品质的示例。</span></p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="iTfRN.jpg" alt="Custom home" loading="lazy"><div class="overlay"><span><span class="lang-en">Custom New Home</span><span class="lang-zh">定制新房</span></span></div></div>
+      <div class="gallery-item"><img src="9T8uz.jpg" alt="Kitchen" loading="lazy"><div class="overlay"><span><span class="lang-en">Kitchen Renovation</span><span class="lang-zh">厨房翻新</span></span></div></div>
+      <div class="gallery-item"><img src="ex4dX.jpg" alt="Deck" loading="lazy"><div class="overlay"><span><span class="lang-en">Deck & Pergola</span><span class="lang-zh">露台与凉亭</span></span></div></div>
+      <div class="gallery-item"><img src="wLi3O.jpg" alt="Bathroom" loading="lazy"><div class="overlay"><span><span class="lang-en">Bathroom Remodel</span><span class="lang-zh">浴室改造</span></span></div></div>
+      <div class="gallery-item"><img src="AZmgs.jpg" alt="Extension" loading="lazy"><div class="overlay"><span><span class="lang-en">Second Storey Addition</span><span class="lang-zh">二层加建</span></span></div></div>
+      <div class="gallery-item"><img src="VF7xE.jpg" alt="Deck detail" loading="lazy"><div class="overlay"><span><span class="lang-en">Outdoor Living Detail</span><span class="lang-zh">户外生活细节</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="lang-en">How It Works</span><span class="lang-zh">合作流程</span></h2>
+      <p class="section-sub"><span class="lang-en">A straightforward process, from first call to handover.</span><span class="lang-zh">从首次联系到交房的清晰流程。</span></p>
+    </div>
+    <div class="process">
+      <div class="step"><div class="step-num">01</div><h3><span class="lang-en">Free On-Site Chat</span><span class="lang-zh">免费现场勘查</span></h3><p><span class="lang-en">We walk the site with you and talk through what's possible and what it costs.</span><span class="lang-zh">我们与您一起查看现场，讨论可行方案与大致成本。</span></p></div>
+      <div class="step"><div class="step-num">02</div><h3><span class="lang-en">Fixed-Price Quote</span><span class="lang-zh">固定报价</span></h3><p><span class="lang-en">A written, itemised quote — no vague allowances, no surprises later.</span><span class="lang-zh">书面明细报价——没有模糊预留，后期无意外。</span></p></div>
+      <div class="step"><div class="step-num">03</div><h3><span class="lang-en">Build & Updates</span><span class="lang-zh">施工与更新</span></h3><p><span class="lang-en">Regular progress updates and photos so you always know where things stand.</span><span class="lang-zh">定期进度更新和照片，让您随时了解工程进展。</span></p></div>
+      <div class="step"><div class="step-num">04</div><h3><span class="lang-en">Handover & Warranty</span><span class="lang-zh">交房与保修</span></h3><p><span class="lang-en">A final walkthrough, all paperwork, and statutory warranty behind the work.</span><span class="lang-zh">最终验收、所有文件交接，以及法定保修保障。</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background: white;">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title"><span class="lang-en">About Ziverse</span><span class="lang-zh">关于 Ziverse</span></h2>
+        <p class="section-sub" style="margin-bottom: 18px;"><span class="lang-en">Owner-operated, so the person quoting the job is the person building it.</span><span class="lang-zh">业主亲自运营，报价的人就是施工的人。</span></p>
+        <p><span class="lang-en">Ziverse Constructions is run by Bing (Zhibin) Lin, a NSW-licensed contractor in carpentry and kitchen, bathroom & laundry renovation. Since 2020 Bing has personally quoted, managed and worked on every job, so you deal with the same person from the first site visit to handover.</span><span class="lang-zh">Ziverse Constructions 由 Bing（Zhibin）Lin 运营，他是 NSW 持牌承包商，专业于木工以及厨房、浴室与洗衣房翻新。自 2020 年以来，Bing 亲自为每一个项目报价、管理和施工，您从首次现场勘查到交房始终与同一人对接。</span></p>
+        <div class="about-details">
+          <div class="detail-item"><strong><span class="lang-en">NSW Contractor Licence</span><span class="lang-zh">NSW 承包商执照</span></strong>471023C · Zhibin Lin<br><span class="lang-en">Carpentry; Kitchen, Bathroom & Laundry Renovation</span><span class="lang-zh">木工；厨房、浴室与洗衣房翻新</span></div>
+          <div class="detail-item"><strong>ABN</strong>91 642 921 917</div>
+          <div class="detail-item"><strong><span class="lang-en">Insurance</span><span class="lang-zh">保险</span></strong><span class="lang-en">Public & products liability, $5 million</span><span class="lang-zh">公共及产品责任险，500 万澳元</span></div>
+        </div>
+      </div>
+      <div class="about-image"><img src="1QqbH.jpg" alt="Builder on site" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="lang-en">What Clients Say</span><span class="lang-zh">客户评价</span></h2>
+      <p class="section-sub"><span class="lang-en">Word of mouth is how this business grows.</span><span class="lang-zh">口碑是我们业务增长的方式。</span></p>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p><span class="lang-en">Bing built our new deck and we couldn't be happier. He talked us through the design and materials up front, kept us in the loop the whole way, and he and his team left everything neat and tidy at the end of each day. The finish is excellent and it's now our favourite spot at home.</span><span class="lang-zh">Bing 为我们建造了新露台，我们非常满意。他事先详细讲解了设计和材料，全程保持沟通，他和他的团队每天结束时都把现场收拾得干干净净。完工效果非常出色，现在成了我们家最喜欢的地方。</span></p>
+        <div class="author">Jacky, Castle Hill</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p><span class="lang-en">We got three quotes and Ziverse's was the only one that was fully itemised, with no vague allowances. Bing explained exactly what we were paying for and there were no surprises at the end. Our new kitchen and bathroom look fantastic.</span><span class="lang-zh">我们拿到三份报价，只有 Ziverse 的是完全明细的，没有模糊预留。Bing 清楚地解释了每一项费用，最终没有任何意外。我们的新厨房和浴室看起来非常棒。</span></p>
+        <div class="author">Mike, Chatswood</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p><span class="lang-en">Bing did the carpentry on our second-storey addition while we kept living downstairs. He turned up when he said he would, kept us posted every day and made a big project feel easy. The extra space has changed how our family lives.</span><span class="lang-zh">Bing 为我们的二层加建做了木工，我们一直住在楼下。他按时到达，每天都有更新，让一个大项目变得轻松。额外的空间改变了我们家庭的生活方式。</span></p>
+        <div class="author">Laura, Concord West</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="lang-en">Common Questions</span><span class="lang-zh">常见问题</span></h2>
+      <p class="section-sub"><span class="lang-en">Answers before you pick up the phone.</span><span class="lang-zh">在您打电话之前的答案。</span></p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">How much will my job cost?</span><span class="lang-zh">我的工程大概要多少钱？</span></div>
+      <div class="faq-answer"><span class="lang-en">Every job is different, so we don't use price lists. After a free on-site visit, you get a fixed-price, itemised written quote, with no vague allowances and no surprises later.</span><span class="lang-zh">每个项目都不同，所以我们不使用价格表。免费现场勘查后，您会收到固定价格的明细书面报价，没有模糊预留，后期无意外。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">Do I need council approval for a deck?</span><span class="lang-zh">露台需要议会审批吗？</span></div>
+      <div class="faq-answer"><span class="lang-en">Often not. In NSW many small decks count as exempt development. We check your site and tell you which applies before we quote.</span><span class="lang-zh">通常不需要。在 NSW，许多小型露台属于豁免开发。我们会检查您的场地并在报价前告知您适用哪种情况。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">How much deposit do you ask for?</span><span class="lang-zh">你们收取多少定金？</span></div>
+      <div class="faq-answer"><span class="lang-en">Never more than 10% of the contract price, which is the NSW limit. The rest is paid in stages set out in your contract as the work progresses.</span><span class="lang-zh">不超过合同价格的 10%，这是 NSW 的法定上限。其余款项按合同规定的阶段支付。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">Will I get a written contract?</span><span class="lang-zh">会有书面合同吗？</span></div>
+      <div class="faq-answer"><span class="lang-en">Yes. NSW law requires a written contract for any job over $5,000. Jobs over $20,000 also need home warranty insurance (HBCF) in place before any deposit is taken.</span><span class="lang-zh">会的。NSW 法律规定任何超过 5000 澳元的工程都必须有书面合同。超过 2 万澳元的工程还需要在收取任何定金前办理房屋保修保险（HBCF）。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">Are you licensed and insured?</span><span class="lang-zh">你们持牌并投保了吗？</span></div>
+      <div class="faq-answer"><span class="lang-en">Yes. Ziverse Constructions works under NSW contractor licence 471023C and carries $5 million public and products liability insurance.</span><span class="lang-zh">是的。Ziverse Constructions 持有 NSW 承包商执照 471023C，并投保了 500 万澳元的公共及产品责任险。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">Is the work guaranteed?</span><span class="lang-zh">工程有保修吗？</span></div>
+      <div class="faq-answer"><span class="lang-en">All residential building work in NSW is covered by statutory warranties: 6 years for major defects and 2 years for other defects.</span><span class="lang-zh">NSW 所有住宅建筑工程都受法定保修保障：主要缺陷 6 年，其他缺陷 2 年。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">How long will it take?</span><span class="lang-zh">工程需要多长时间？</span></div>
+      <div class="faq-answer"><span class="lang-en">It depends on the size of the job and any approvals. Your quote includes a start date and an expected timeframe, and you get regular progress updates.</span><span class="lang-zh">取决于项目规模和审批情况。您的报价会包含开始日期和预计工期，施工过程中会有定期进度更新。</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question"><span class="lang-en">Which areas do you cover?</span><span class="lang-zh">你们服务哪些区域？</span></div>
+      <div class="faq-answer"><span class="lang-en">All of Greater Sydney and the Blue Mountains, including the Hills District, Western Sydney, Parramatta, Inner West, North Shore, Northern Beaches, Eastern Suburbs, St George & Sutherland Shire and South West Sydney.</span><span class="lang-zh">大悉尼地区及蓝山，包括 Hills District、Western Sydney、Parramatta、Inner West、North Shore、Northern Beaches、Eastern Suburbs、St George & Sutherland Shire 和 South West Sydney。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title"><span class="lang-en">Get In Touch</span><span class="lang-zh">联系我们</span></h2>
+        <p class="section-sub"><span class="lang-en">Tell us about your project and we'll call you back. No call centres, no sales reps — you'll hear directly from Ziverse Constructions.</span><span class="lang-zh">告诉我们您的项目，我们会尽快回复。没有呼叫中心，没有销售代表——您会直接听到 Ziverse Constructions 的回复。</span></p>
+        <div class="contact-methods">
+          <a href="tel:+61450466610">📞 0450 466 610</a>
+          <a href="https://wa.me/61450466610?text=Hi%20Bing">💬 WhatsApp</a>
+          <a href="mailto:ziverseconstructions@gmail.com">✉️ ziverseconstructions@gmail.com</a>
+        </div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 10px;"><span class="lang-en">Areas We Build In</span><span class="lang-zh">服务区域</span></h3>
+        <div class="areas">
+          <span class="area-tag">Hills District</span>
+          <span class="area-tag">Western Sydney</span>
+          <span class="area-tag">Parramatta</span>
+          <span class="area-tag">Inner West</span>
+          <span class="area-tag">North Shore</span>
+          <span class="area-tag">Northern Beaches</span>
+          <span class="area-tag">Eastern Suburbs</span>
+          <span class="area-tag">St George & Sutherland</span>
+          <span class="area-tag">South West Sydney</span>
+          <span class="area-tag">Blue Mountains</span>
+        </div>
+      </div>
+      <form id="quoteForm">
+        <input type="text" class="ph-name" placeholder="Full name" required>
+        <input type="tel" class="ph-phone" placeholder="Phone" required>
+        <input type="email" class="ph-email" placeholder="Email (optional)">
+        <select required class="ph-type">
+          <option value="" class="opt-type">Project type</option>
+          <option class="opt-new">New home</option>
+          <option class="opt-reno">Renovation / extension</option>
+          <option class="opt-deck">Deck / outdoor</option>
+          <option class="opt-bath">Bathroom / kitchen</option>
+          <option class="opt-other">Other</option>
+        </select>
+        <select class="ph-budget">
+          <option value="" class="opt-budget">Estimated budget (optional)</option>
+          <option class="opt-u50">Under $50,000</option>
+          <option class="opt-50">$50,000 – $150,000</option>
+          <option class="opt-150">$150,000 – $300,000</option>
+          <option class="opt-300">$300,000+</option>
+          <option class="opt-ns">Not sure yet</option>
+        </select>
+        <textarea class="ph-job" placeholder="Tell us about the job"></textarea>
+        <button type="submit"><span class="lang-en">Request a Free Quote</span><span class="lang-zh">申请免费报价</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">Ziverse <span>Constructions</span></div>
+    <p><span class="lang-en">© 2026 Ziverse Constructions Pty Ltd · ABN 91 642 921 917 · NSW Contractor Licence 471023C (Zhibin Lin).</span><span class="lang-zh">© 2026 Ziverse Constructions Pty Ltd · ABN 91 642 921 917 · NSW 承包商执照 471023C（Zhibin Lin）。</span></p>
+    <p style="margin-top: 8px;"><span class="lang-en">Serving Greater Sydney & the Blue Mountains, NSW</span><span class="lang-zh">服务大悉尼地区与蓝山，NSW</span></p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:+61450466610" class="call"><span class="lang-en">Call</span><span class="lang-zh">电话</span></a>
+  <a href="#contact" class="quote"><span class="lang-en">Get Quote</span><span class="lang-zh">报价</span></a>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+let isZh = false;
+const langToggle = document.getElementById('langToggle');
+const langToggleMobile = document.getElementById('langToggleMobile');
+
+function setLanguage(zh) {
+  isZh = zh;
+  document.body.classList.toggle('zh', zh);
+  document.documentElement.lang = zh ? 'zh-CN' : 'en';
+  document.title = zh ? 'Ziverse Constructions | 悉尼与蓝山持牌建筑商' : 'Ziverse Constructions | Licensed Builder Sydney';
+  langToggle.textContent = zh ? 'EN' : '中文';
+  langToggleMobile.textContent = zh ? 'EN' : '中文';
+
+  document.querySelector('.ph-name').placeholder = zh ? '姓名' : 'Full name';
+  document.querySelector('.ph-phone').placeholder = zh ? '电话' : 'Phone';
+  document.querySelector('.ph-email').placeholder = zh ? '邮箱（选填）' : 'Email (optional)';
+  document.querySelector('.ph-job').placeholder = zh ? '请描述您的项目' : 'Tell us about the job';
+
+  const opts = {
+    type: zh ? '项目类型' : 'Project type',
+    new: zh ? '新建住宅' : 'New home',
+    reno: zh ? '翻新 / 扩建' : 'Renovation / extension',
+    deck: zh ? '露台 / 户外' : 'Deck / outdoor',
+    bath: zh ? '浴室 / 厨房' : 'Bathroom / kitchen',
+    other: zh ? '其他' : 'Other',
+    budget: zh ? '预估预算（选填）' : 'Estimated budget (optional)',
+    u50: zh ? '5 万以下' : 'Under $50,000',
+    s50: zh ? '5 万 – 15 万' : '$50,000 – $150,000',
+    s150: zh ? '15 万 – 30 万' : '$150,000 – $300,000',
+    s300: zh ? '30 万以上' : '$300,000+',
+    ns: zh ? '还不确定' : 'Not sure yet'
+  };
+  document.querySelector('.opt-type').textContent = opts.type;
+  document.querySelector('.opt-new').textContent = opts.new;
+  document.querySelector('.opt-reno').textContent = opts.reno;
+  document.querySelector('.opt-deck').textContent = opts.deck;
+  document.querySelector('.opt-bath').textContent = opts.bath;
+  document.querySelector('.opt-other').textContent = opts.other;
+  document.querySelector('.opt-budget').textContent = opts.budget;
+  document.querySelector('.opt-u50').textContent = opts.u50;
+  document.querySelector('.opt-50').textContent = opts.s50;
+  document.querySelector('.opt-150').textContent = opts.s150;
+  document.querySelector('.opt-300').textContent = opts.s300;
+  document.querySelector('.opt-ns').textContent = opts.ns;
+}
+
+langToggle.addEventListener('click', () => setLanguage(!isZh));
+langToggleMobile.addEventListener('click', () => setLanguage(!isZh));
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav = document.getElementById('mobileNav');
+menuToggle.addEventListener('click', () => {
+  mobileNav.classList.toggle('active');
+  menuToggle.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+});
+function closeMenu() {
+  mobileNav.classList.remove('active');
+  menuToggle.textContent = '☰';
+}
+
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+document.getElementById('quoteForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const original = btn.innerHTML;
+  btn.innerHTML = isZh ? '已发送 — 谢谢！' : 'Sent — Thank you!';
+  btn.style.background = '#10B981';
+  setTimeout(() => {
+    alert(isZh ? '谢谢！Bing 会尽快联系您。（演示表单）' : 'Thank you! Bing will contact you shortly. (Demo form)');
+    e.target.reset();
+    btn.innerHTML = original;
+    btn.style.background = '';
+  }, 600);
+});
+
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  header.style.boxShadow = window.scrollY > 20 ? '0 4px 16px rgba(15,23,42,0.08)' : 'none';
+  backToTop.classList.toggle('visible', window.scrollY > 400);
+});
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 </body>
 </html>
